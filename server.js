@@ -2,6 +2,7 @@ const express = require('express');
 const app = express()
 
 app.use(express.static(__dirname+ '/public'))
+app.set('view engine', 'ejs')
 
 
 
@@ -20,7 +21,12 @@ app.get('/shop', (req, res) => {
 
 app.get('/list', async (req, res) => {
     let result= await db.collection('post').find().toArray()
-    res.send(result);
+    console.log(result)
+    res.render('list.ejs', { posts : result });
+})
+
+app.get('/time', (req,res) => {
+    res.render('time.ejs', { time : new Date()})
 })
 
 const {MongoClient} = require('mongodb');
