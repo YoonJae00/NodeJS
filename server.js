@@ -15,7 +15,7 @@ app.get('/news', (req, res) => {
     res.send('오늘의 뉴스12');
 })
 
-app.get('/shop', (req, res) => {
+app.get('/index', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
@@ -27,6 +27,16 @@ app.get('/list', async (req, res) => {
 
 app.get('/time', (req,res) => {
     res.render('time.ejs', { time : new Date()})
+})
+
+app.get('/airport', async (req,res) => {
+    let result= await db.collection('post').find().toArray()
+    console.log(result)
+    res.render('airport.ejs', { posts : result });
+})
+
+app.get('/blog', (req, res) => {
+    res.render('myblog.ejs')
 })
 
 const {MongoClient} = require('mongodb');

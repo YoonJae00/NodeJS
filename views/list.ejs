@@ -7,19 +7,17 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body class="grey-bg">
-    <div class="white-bg">
-        <% for ( let i = 0; i < posts.length; i++ { %>
-      <div class="list-box">
+<div class="white-bg">
+    <% for (let i = 0; i < posts.length; i++) { %> <!-- 괄호 닫기 수정 -->
+    <div class="list-box">
         <h4><%= posts[i].title %></h4>
         <p><%= posts[i].content %></p>
-      </div>
-      <% } %>
+    </div>
+    <% } %> <!-- 반복문 닫기 -->
+</div>
 
-    </div> 
-  
-    <script>
-
-        
-    </script>
-  </body>
+<script>
+    // 스크립트 코드가 필요하다면 여기에 추가
+</script>
+</body>
 </html>
